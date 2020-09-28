@@ -20,11 +20,27 @@ public class MessageGenerator implements IMessageGenerator {
 
     @Override
     public String getMainMessage() {
-        return "This is the Main Message";
+        return "Number is between" + game.getSmallest()
+                + " and " + game.getBiggest()
+                + ". Can you guess it?";
     }
 
     @Override
     public String getResultMessage() {
-        return "You lost, apparently";
+        if (game.isGameWon()) {
+            return "You guessed it! The number was " + game.getNumber();
+        } else if (game.isGameLost()) {
+            return "You lost. The number was " + game.getNumber();
+        } else if (game.getRemainingGuesses() == guessCount) {
+            return "What is your first guess?";
+        } else {
+            var direction = "Lower";
+
+            if (game.getGuess() < game.getNumber()) {
+                direction = "Higher";
+            }
+
+            return direction + "! You have " + game.getRemainingGuesses() + " guesses left.";
+        }
     }
 }
