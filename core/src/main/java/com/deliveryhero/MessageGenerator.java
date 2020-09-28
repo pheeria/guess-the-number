@@ -20,7 +20,7 @@ public class MessageGenerator implements IMessageGenerator {
 
     @Override
     public String getMainMessage() {
-        return "Number is between" + game.getSmallest()
+        return "Number is between " + game.getSmallest()
                 + " and " + game.getBiggest()
                 + ". Can you guess it?";
     }
