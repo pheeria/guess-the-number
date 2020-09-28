@@ -1,0 +1,14 @@
+<configuration>
+    <appender name="BREACH" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date %-5level %logger{30} >> %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.deliveryhero" level="DEBUG"/>
+    <logger name="org.springframework" level="DEBUG"/>
+
+    <root level="INFO">
+        <appender-ref ref="BREACH"/>
+    </root>
+</configuration>
