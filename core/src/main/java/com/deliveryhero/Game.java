@@ -3,11 +3,9 @@ package com.deliveryhero;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
-@Component
 public class Game implements IGame {
     @Autowired
     private INumberGenerator numberGenerator;
@@ -18,10 +16,6 @@ public class Game implements IGame {
     private int guessCount = 10;
     private int remainingGuesses;
     private static final Logger log = LoggerFactory.getLogger(Game.class);
-
-    public Game(INumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator;
-    }
 
     @Override
     @PostConstruct

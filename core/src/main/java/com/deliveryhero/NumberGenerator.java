@@ -1,10 +1,8 @@
 package com.deliveryhero;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Random;
 
-@Component
+
 public class NumberGenerator implements INumberGenerator {
     private final Random random = new Random();
     private int maxNumber = 100;
