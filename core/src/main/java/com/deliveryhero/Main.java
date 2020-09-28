@@ -11,11 +11,14 @@ public class Main {
         log.info("Guess The Number Game");
 
         var context = new AnnotationConfigApplicationContext(AppConfig.class);
-        var generator = context.getBean(INumberGenerator.class);
+        var numberGenerator = context.getBean(INumberGenerator.class);
 
-        log.info("Number {}",generator.next());
+        log.info("Number {}",numberGenerator.next());
 
         var game = context.getBean(IGame.class);
+        var messageGenerator = context.getBean(IMessageGenerator.class);
+        log.info(messageGenerator.getMainMessage());
+        log.info(messageGenerator.getResultMessage());
 
         context.close();
     }
