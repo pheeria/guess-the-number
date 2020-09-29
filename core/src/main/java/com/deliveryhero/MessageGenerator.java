@@ -2,15 +2,19 @@ package com.deliveryhero;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Component
 public class MessageGenerator implements IMessageGenerator {
     private static final Logger log = LoggerFactory.getLogger(MessageGenerator.class);
 
-    @Autowired
-    private IGame game;
+    private final IGame game;
+
+    public MessageGenerator(IGame game) {
+        this.game = game;
+    }
 
     @PostConstruct
     public void init() {

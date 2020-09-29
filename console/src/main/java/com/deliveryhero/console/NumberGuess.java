@@ -4,7 +4,6 @@ import com.deliveryhero.IGame;
 import com.deliveryhero.IMessageGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -14,10 +13,13 @@ import java.util.Scanner;
 @Component
 public class NumberGuess {
     private static final Logger log = LoggerFactory.getLogger(NumberGuess.class);
-    @Autowired
-    private IGame game;
-    @Autowired
-    private IMessageGenerator messageGenerator;
+    private final IGame game;
+    private final IMessageGenerator messageGenerator;
+
+    public NumberGuess(IGame game, IMessageGenerator messageGenerator) {
+        this.game = game;
+        this.messageGenerator = messageGenerator;
+    }
 
     @EventListener(ContextRefreshedEvent.class)
     public void onStart() {

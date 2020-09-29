@@ -3,23 +3,26 @@ package com.deliveryhero;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Component
 public class Game implements IGame {
-    @Autowired
-    private INumberGenerator numberGenerator;
-    @Autowired
-    @GuessCount
-    private int guessCount;
-
+    private static final Logger log = LoggerFactory.getLogger(Game.class);
+    private final INumberGenerator numberGenerator;
+    private final int guessCount;
     private int smallest;
     private int biggest;
     private int number;
     private int guess;
-
     private int remainingGuesses;
-    private static final Logger log = LoggerFactory.getLogger(Game.class);
+
+    @Autowired
+    public Game(INumberGenerator numberGenerator, @GuessCount int guessCount) {
+        this.numberGenerator = numberGenerator;
+        this.guessCount = guessCount;
+    }
 
     @Override
     @PostConstruct
