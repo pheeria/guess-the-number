@@ -24,10 +24,10 @@ public class Game implements IGame {
     @Override
     @PostConstruct
     public void reset() {
-        smallest = 0;
+        smallest = numberGenerator.getMinNumber();
         biggest = numberGenerator.getMaxNumber();
         remainingGuesses = guessCount;
-        guess = 0;
+        guess = smallest;
         number = numberGenerator.next();
         log.debug("New number is {}", number);
     }
