@@ -8,6 +8,7 @@ import java.util.Random;
 public class NumberGenerator implements INumberGenerator {
     private final Random random = new Random();
     @Autowired
+    @MaxNumber
     private int maxNumber;
 
     @Override

@@ -10,6 +10,7 @@ public class Game implements IGame {
     @Autowired
     private INumberGenerator numberGenerator;
     @Autowired
+    @GuessCount
     private int guessCount;
 
     private int smallest;
