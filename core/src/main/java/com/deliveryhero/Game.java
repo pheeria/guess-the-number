@@ -54,6 +54,11 @@ public class Game implements IGame {
     }
 
     @Override
+    public int getGuessCount() {
+        return guessCount;
+    }
+
+    @Override
     public void setGuess(int guess) {
         this.guess = guess;
     }

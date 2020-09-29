@@ -11,7 +11,6 @@ public class MessageGenerator implements IMessageGenerator {
 
     @Autowired
     private IGame game;
-    private int guessCount = 10;
 
     @PostConstruct
     public void init() {
@@ -31,7 +30,7 @@ public class MessageGenerator implements IMessageGenerator {
             return "You guessed it! The number was " + game.getNumber();
         } else if (game.isGameLost()) {
             return "You lost. The number was " + game.getNumber();
-        } else if (game.getRemainingGuesses() == guessCount) {
+        } else if (game.getRemainingGuesses() == game.getGuessCount()) {
             return "What is your first guess?";
         } else {
             var direction = "Lower";

@@ -6,6 +6,7 @@ public interface IGame {
     int getRemainingGuesses();
     int getNumber();
     int getGuess();
+    int getGuessCount();
     void setGuess(int guess);
     void check();
     void reset();
