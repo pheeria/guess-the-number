@@ -9,11 +9,14 @@ import javax.annotation.PostConstruct;
 public class Game implements IGame {
     @Autowired
     private INumberGenerator numberGenerator;
+    @Autowired
+    private int guessCount;
+
     private int smallest;
     private int biggest;
     private int number;
     private int guess;
-    private int guessCount = 10;
+
     private int remainingGuesses;
     private static final Logger log = LoggerFactory.getLogger(Game.class);
 

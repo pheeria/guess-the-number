@@ -1,10 +1,13 @@
-package com.deliveryhero;
+package com.deliveryhero.config;
 
+import com.deliveryhero.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 @Configuration
+@Import(GameConfig.class)
 @ComponentScan(basePackages = "com.deliveryhero")
 public class AppConfig {
 
