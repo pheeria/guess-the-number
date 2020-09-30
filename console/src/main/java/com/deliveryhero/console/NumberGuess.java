@@ -2,17 +2,16 @@ package com.deliveryhero.console;
 
 import com.deliveryhero.IGame;
 import com.deliveryhero.IMessageGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Slf4j
 @Component
 public class NumberGuess {
-    private static final Logger log = LoggerFactory.getLogger(NumberGuess.class);
     private final IGame game;
     private final IMessageGenerator messageGenerator;
 

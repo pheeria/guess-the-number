@@ -1,22 +1,27 @@
 package com.deliveryhero;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Slf4j
+@Getter
 @Component
 public class Game implements IGame {
-    private static final Logger log = LoggerFactory.getLogger(Game.class);
+    @Getter(AccessLevel.NONE)
     private final INumberGenerator numberGenerator;
     private final int guessCount;
     private int smallest;
     private int biggest;
     private int number;
-    private int guess;
     private int remainingGuesses;
+    @Setter
+    private int guess;
 
     @Autowired
     public Game(INumberGenerator numberGenerator, @GuessCount int guessCount) {
@@ -33,41 +38,6 @@ public class Game implements IGame {
         guess = smallest;
         number = numberGenerator.next();
         log.debug("New number is {}", number);
-    }
-
-    @Override
-    public int getSmallest() {
-        return smallest;
-    }
-
-    @Override
-    public int getBiggest() {
-        return biggest;
-    }
-
-    @Override
-    public int getRemainingGuesses() {
-        return remainingGuesses;
-    }
-
-    @Override
-    public int getNumber() {
-        return number;
-    }
-
-    @Override
-    public int getGuess() {
-        return guess;
-    }
-
-    @Override
-    public int getGuessCount() {
-        return guessCount;
-    }
-
-    @Override
-    public void setGuess(int guess) {
-        this.guess = guess;
     }
 
     @Override
